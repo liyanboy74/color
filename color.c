@@ -1,9 +1,11 @@
 /*
  By Liyanboy74
+ https://github.com/liyanboy74
 */
 
 #include <stdio.h>
 #include <math.h>
+
 #include "color.h"
 
 color_rgb_s color_rgba_to_rgb_ss(color_rgb_s background,color_rgba_s color)
@@ -22,9 +24,9 @@ uint16_t color_24_to_16_s(color_rgb_s color)
 {
     uint16_t cc=0;
 
-	cc|=(((int)round((color.b*(float)0.1215686)))&0x1f)<<0 ;//B5
-	cc|=(((int)round((color.g*(float)0.2470588)))&0x3f)<<5 ;//G6
-	cc|=(((int)round((color.r*(float)0.1215686)))&0x1f)<<11;//R5
+	cc|=(((int)round((color.b*(float)0.1215686)))&0x1f)<<0 ;
+	cc|=(((int)round((color.g*(float)0.2470588)))&0x3f)<<5 ;
+	cc|=(((int)round((color.r*(float)0.1215686)))&0x1f)<<11;
 
 	return cc;
 }
@@ -62,4 +64,13 @@ color_rgb_s color_16_to_24_s(uint16_t color)
     c.word=color;
 
     return color_16_to_24_su(c);
+}
+
+color_rgb_s color_s(uint8_t r,uint8_t g,uint8_t b)
+{
+    color_rgb_s c;
+    c.b=b;
+    c.g=g;
+    c.r=r;
+    return c;
 }

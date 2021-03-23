@@ -3,18 +3,12 @@
 
 #include <stdint.h>
 
-// RGB565 Color from RGB888
-#define RGB565(r, g, b)         (((r & 0xF8) << 8) | ((g & 0xFC) << 3) | ((b & 0xF8) >> 3))
+// Fast RGB Convert
+#define RGB565(r,g,b)           (((r & 0xF8) << 8) | ((g & 0xFC) << 3) | ((b & 0xF8) >> 3))
+#define RGB888(r,g,b)           (((r & 0xFF) <<16) | ((g & 0xFF) << 8) | ((b & 0xFF) << 0))
 
-// RGB565 Color
-#define C16_BLACK    0x0000
-#define C16_BLUE     0x001F
-#define C16_RED      0xF800
-#define C16_GREEN    0x07E0
-#define C16_CYAN     0x07FF
-#define C16_MAGENTA  0xF81F
-#define C16_YELLOW   0xFFE0
-#define C16_WHITE    0xFFFF
+// RGB888 Not Set
+#define COLOR_NOT_SET       {0,0,0}
 
 
 typedef struct{
@@ -49,11 +43,12 @@ typedef union
 extern "C" {
 #endif
 
-uint16_t    color_24_to_16_s(color_rgb_s color);
-uint16_t    color_24_to_16(uint8_t r,uint8_t g,uint8_t b);
+color_rgb_s color_s(uint8_t r,uint8_t g,uint8_t b);
 color_rgb_s color_rgba_to_rgb_ss(color_rgb_s background,color_rgba_s color);
 color_rgb_s color_16_to_24_su(color_rgb565_u color);
 color_rgb_s color_16_to_24_s(uint16_t color);
+uint16_t    color_24_to_16_s(color_rgb_s color);
+uint16_t    color_24_to_16(uint8_t r,uint8_t g,uint8_t b);
 
 #ifdef __cplusplus
 }
