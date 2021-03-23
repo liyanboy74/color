@@ -28,9 +28,9 @@ typedef color_rgb888_s color_rgb_s;
 
 typedef struct
 {
-	uint16_t r:5;
-	uint16_t g:6;
 	uint16_t b:5;
+	uint16_t g:6;
+	uint16_t r:5;
 }color_rgb565_s;
 
 typedef union
