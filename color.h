@@ -10,7 +10,6 @@
 // RGB888 Not Set
 #define COLOR_NOT_SET       {0,0,0}
 
-
 typedef struct{
     uint8_t r;
     uint8_t g;
