@@ -49,10 +49,6 @@ color_rgb_s color_16_to_24_s(uint16_t color);
 uint16_t    color_24_to_16_s(color_rgb_s color);
 uint16_t    color_24_to_16(uint8_t r,uint8_t g,uint8_t b);
 
-#ifdef __cplusplus
-}
-#endif
-
 #define WHITE   color_s(0xff,0xff,0xff)
 #define SILVER  color_s(0xc0,0xc0,0xc0)
 #define GRAY    color_s(0x80,0x80,0x80)
@@ -69,5 +65,9 @@ uint16_t    color_24_to_16(uint8_t r,uint8_t g,uint8_t b);
 #define NAVY    color_s(0x00,0x00,0x80)
 #define FUCHSIA color_s(0xff,0x00,0xff)
 #define PURPLE  color_s(0x80,0x00,0x80)
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
